@@ -12,7 +12,7 @@ from __future__ import annotations
 import os
 from typing import List, Tuple
 
-from ingest import Chunk
+from .ingestion import Chunk
 
 SYSTEM_PROMPT = (
     "You are a financial analyst assistant. Answer the user's question "

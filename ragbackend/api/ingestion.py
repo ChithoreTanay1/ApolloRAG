@@ -1,15 +1,4 @@
-"""
-ingest.py
-Loads the Financials_Sample_Data.xlsx workbook and turns each row into a
-self-contained natural-language "document" that a retriever can index.
 
-Row shape in the source file:
-    Account | Businees Unit | Currency | Year | Scenario | Jan..Dec
-
-Each row already represents one atomic fact (one account, one business
-unit, one year, one scenario -> twelve monthly values), so we chunk
-one-row-per-document rather than splitting further.
-"""
 from __future__ import annotations
 
 import uuid
@@ -74,6 +63,6 @@ def load_chunks(xlsx_path: str | Path, sheet_name: str = "Financials") -> List[C
 
 
 if __name__ == "__main__":
-    chunks = load_chunks(Path(__file__).parent / "data" / "Financials_Sample_Data.xlsx")
+    chunks = load_chunks(Path(__file__).parent.parent / "data" / "Financials Sample Data.xlsx")
     print(f"Loaded {len(chunks)} chunks")
     print(chunks[0]["text"])
